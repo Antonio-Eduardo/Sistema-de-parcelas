@@ -26,4 +26,11 @@ public class Parcelas {
     public void setValorParcela(double valorParcela) {
         this.valorParcela = valorParcela;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("valorParcela= ").append(valorParcela);
+        sb.append(" dataParcela= ").append(dataParcela);
+        return sb.toString();
+    }
 }

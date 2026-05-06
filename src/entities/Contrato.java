@@ -5,14 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Contrato {
-    private String numeroContrato;
+    private int numeroContrato;
     private LocalDate dataContrato;
     private double valorContrato;
     private List<Parcelas> parcelas = new ArrayList<>();
 
-    public Contrato(){};
+    public Contrato() {
+    }
 
-    public Contrato(String numeroContrato, LocalDate dataContrato, double valorContrato) {
+    ;
+
+    public Contrato(int numeroContrato, LocalDate dataContrato, double valorContrato) {
         this.numeroContrato = numeroContrato;
         this.dataContrato = dataContrato;
         this.valorContrato = valorContrato;
@@ -26,12 +29,16 @@ public class Contrato {
         this.dataContrato = dataContrato;
     }
 
-    public String getNumeroContrato() {
+    public int getNumeroContrato() {
         return numeroContrato;
     }
 
-    public void setNumeroContrato(String numeroContrato) {
+    public void setNumeroContrato(int numeroContrato) {
         this.numeroContrato = numeroContrato;
+    }
+
+    public void addParcela(Parcelas p) {
+        parcelas.add(p);
     }
 
     public List<Parcelas> getParcelas() {
@@ -48,5 +55,18 @@ public class Contrato {
 
     public void setValorContrato(double valorContrato) {
         this.valorContrato = valorContrato;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Contrato\n");
+        sb.append("\ndataContrato= ").append(dataContrato);
+        sb.append("\nnumeroContrato= ").append(numeroContrato);
+        sb.append("\nvalorContrato= ").append(valorContrato);
+        sb.append("\nParcelas\n");
+        for (Parcelas p :parcelas){
+            sb.append(p).append("\n");
+        }
+        return sb.toString();
     }
 }
